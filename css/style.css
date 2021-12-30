@@ -1,0 +1,214 @@
+* {  box-sizing: border-box; }
+
+html,
+body {
+  height: 100%;
+  margin: 0 auto; padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.06rem;
+}
+
+h1, h2, h3 { font-family: "Open Sans", "sans serif";   }
+
+a {  
+  text-decoration: none;  
+  color: black;
+}
+
+a:hover {  cursor: pointer;}
+
+.aktiv:hover { cursor: auto; } 
+
+img {border-radius: 2%}
+
+/* ** NAV ** */
+nav {
+	position: fixed; 
+	left: 0;
+	right: 0;
+	height: 60px;
+	background-color:  rgba(255, 255, 255, 0.6);
+  z-index: 1;
+}
+nav .enlaces { 
+  height: 100%;
+  padding: 0;
+	margin: 0;
+ 	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+nav .enlaces li {
+	list-style: none;
+}
+nav .enlaces a {
+	padding: 1em 2em;
+	font-size: 16px;
+	font-weight: bold;
+	}
+#btn-menú {
+	position: absolute;
+	top: -100px;
+}
+nav .triraya { 
+	display: none;
+	position: absolute;
+	right: 5%;
+	top: 50%;
+	transform: translateY(-50%);
+}
+nav .triraya:hover{
+  cursor: pointer;
+}
+nav .triraya .rayita {
+	width: 30px;
+	height: 5px;
+	background-color: black;
+	margin: 5px;
+	border-radius: 3px;
+	transition: all .3s ease-in-out;
+}
+
+/* ***** BANDA posmenú ******** */
+.band {   
+  min-height: 250px; 
+  margin-top: 60px;
+}
+
+/***** TITULO  primera página*****/
+.título {
+  position: absolute;
+  bottom: 15%;
+  left: 2%;
+  color: black;
+} 
+.título > h1, p {  
+  margin:0;
+  padding:0; 
+}  
+.título h1 { 
+  font-size: 3.7rem;
+}            
+.título p {
+  font-size:1.8rem; 
+  font-weight: bold; 
+}
+
+/**********************************/
+/*contenedor de la transparencia */
+.contenedor { 
+  background: rgba(255, 255, 255, 0.6);   
+  padding-top: 3rem ;
+  width: 100%;
+  height: 200vh;
+  line-height: 1.6;
+  overflow-y: scroll;
+}
+.contenedor > h3{
+  margin:2rem 0 0px 0;
+}
+
+
+/* contenedor de la cuadrícula */
+.grid-container { 
+  display: grid; 
+  gap: 2rem;
+  grid-template-areas: 
+    'izq    medio   der ' 
+} 
+.izq, .medio, .der {}
+
+.izq { grid-area: izq; }
+.medio {  grid-area: medio;}
+.der {  grid-area: der;   }
+
+.grid-container li { 
+  padding-top: 1.5rem;
+  border-bottom: 1px solid gray;
+  width: 90%;
+  font-size: large;
+  font-weight: 600;
+}
+.grid-container p {  
+  width: 500px;
+ padding: 0 3rem;
+ font-size: larger;
+ margin-left: auto;
+ margin-right: auto;
+
+}
+.foto {
+  border: 1px solid gray;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  }
+  figcaption {
+    text-align: center;
+    padding-top: 1rem;
+    font-size: 1.5rem
+  }
+
+/*****************************/
+/*IMPRESSUM  quinta  página*/
+
+section {
+  display: flex;     
+  flex-wrap: wrap;
+}
+
+.item-izq, .item-der { flex: 50%; padding: 0 4rem; }
+
+
+/****************************************************************************************/
+      /*AJUSTES DE TAMAñO hasta 768*/
+/****************************************************************************************/
+@media screen and (max-width: 768px) {
+	/*MENÚ*/
+	nav .enlaces { 
+    position: fixed;
+		left: 0;
+		right: 0;
+		top: 60px;
+		bottom: 100%;
+		width: auto;
+		height: auto;
+		flex-direction: column;
+	  justify-content: flex-start;
+		background-color: rgba(0, 0, 0, 0.8);
+		overflow: hidden;
+		transition: all .6s ease-in-out;
+	}
+  nav .enlaces li { padding-top: 2rem; padding-bottom: 2rem;}
+	nav .enlaces a {  font-size: 20px; color: white;}
+	
+  nav :checked ~ .enlaces { bottom: 0;}
+	nav .triraya {display: block;	}
+	nav :checked ~ .triraya .rayita:nth-child(1) {	transform: translateY(10px) rotate(225deg);	}
+	nav :checked ~ .triraya .rayita:nth-child(3) {	transform: translateY(-10px)rotate(-225deg);}
+	nav :checked ~ .triraya .rayita:nth-child(2) {	opacity: 0;	}
+  
+ /*T´TULOS Y ENCABEZADOS*/
+  .título h1 { 
+   font-size: 2.5rem    
+  }          
+  .título p {
+    font-size:1.3rem; 
+    font-weight: bold; 
+  }
+  .grid-container  { 
+      grid-template-areas: 
+      'izq    izq     izq     izq     izq     izq' 
+      'medio  medio   medio   medio   medio   medio' 
+      'der    der     der     der     der     der' 
+  }
+  .izq, .medio, .der {  }
+  /*IMPRESSUM 5 PAGINA*/
+  .item-izq, .item-der { flex: 100%  } 
+}
+
+/*AJUSTAR MENÚ HASTA 600*/
+@media (max-width: 600px) {
+
+
+}
